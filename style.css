@@ -7,12 +7,24 @@ h1 {
 }
 
 table {
-  margin: auto;
+  margin: 20px auto;
   width: 100%;
-  overflow-x: auto;
+  border-collapse: collapse;
 }
 
 td, th {
+  padding: 12px 15px;
   text-align: left;
-  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  min-width: 100px;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+tr:hover {
+  background-color: #f1f1f1;
 }
