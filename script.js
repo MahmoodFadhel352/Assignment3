@@ -1,7 +1,7 @@
-// API URL
+// API
 const apiUrl = 'https://data.gov.bh/api/explore/v2.1/catalog/datasets/01-statistics-of-students-nationalities_updated/records?where=colleges%20like%20%22IT%22%20AND%20the_programs%20like%20%22bachelor%22&limit=100';
 
-// Function to fetch and display the data
+// Function to fetch and display
 async function fetchAndDisplayData() {
     try {
         const response = await fetch(apiUrl);
@@ -16,10 +16,10 @@ async function fetchAndDisplayData() {
             throw new Error('No results found in the API response.');
         }
 
-        const tableBody = document.querySelector('#studentTable tbody');
+        const tableBody = document.querySelector('#Table tbody');
         tableBody.innerHTML = ''; // Clear previous content
 
-        // Populate the table with rows
+        // insesrt table rows
         results.forEach(record => {
             const { 
                 year, 
@@ -44,10 +44,10 @@ async function fetchAndDisplayData() {
 
     } catch (error) {
         console.error('Error:', error);
-        const tableBody = document.querySelector('#studentTable tbody');
-        tableBody.innerHTML = <tr><td colspan="6">Error loading data: ${error.message}</td></tr>;
+        const tableBody = document.querySelector('#Table tbody');
+        tableBody.innerHTML = `<tr><td colspan="6">Error loading data: ${error.message}</td></tr>`;
     }
 }
 
-// Call the function to fetch and display data
+// Call the function to fetch and display data 
 window.addEventListener('DOMContentLoaded', fetchAndDisplayData);
