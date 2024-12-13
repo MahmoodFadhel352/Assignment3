@@ -1,8 +1,8 @@
-const apiUrl = 'https://data.gov.bh/api/explore/v2.1/catalog/datasets/01-statistics-of-students-nationalities_updated/records?where=colleges%20like%20%22IT%22%20AND%20the_programs%20like%20%22bachelor%22&limit=100'
-
+const apiUrl = 'https://data.gov.bh/api/explore/v2.1/catalog/datasets/01-statistics-of-students-nationalities_updated/records?where=colleges%20like%20%22IT%22%20AND%20the_programs%20like%20%22bachelor%22&limit=100';
 async function fetchData() {
   try {
     const response = await fetch(apiUrl);
+    console.log(data); // Inspect the response structure
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -29,11 +29,13 @@ function renderTable(records) {
     row.innerHTML = `
       <td>${fields.year || 'N/A'}</td>
       <td>${fields.semester || 'N/A'}</td>
+      <td>${fields.the_programs || 'N/A'}</td>
       <td>${fields.nationality || 'N/A'}</td>
       <td>${fields.colleges || 'N/A'}</td>
-      <td>${fields.the_programs || 'N/A'}</td>
       <td>${fields.students_count || 'N/A'}</td>
     `;
+    console.log(fields); // Check the actual field names in each record
+
     tableBody.appendChild(row);
   });
 }
